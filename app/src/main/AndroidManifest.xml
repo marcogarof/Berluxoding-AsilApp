@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -11,15 +10,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsilApp"
         tools:targetApi="31">
+
+        <!-- Dichiarazione di MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity">
+        </activity>
+
+        <!-- Dichiarazione di AnagraficaActivity -->
+        <activity
+            android:name=".controller.anagrafica.AnagraficaActivity">
+        </activity>
+
+        <!-- Dichiarazione dell'activity ProfiloSanitarioActivity -->
+        <activity
+            android:name=".controller.profiloSanitario.ProfiloSanitarioActivity">
+        </activity>
+
+        <activity android:name=".controller.sezioneInformativa.SezioneInformativaActivity" />
+
+        <activity android:name=".controller.autenticazione.AutenticazioneActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".controller.valutazioni.ValutazioniActivity">
+        </activity>
+
+
     </application>
 
 </manifest>
