@@ -23,9 +23,8 @@ public class AnagraficaActivity extends AppCompatActivity {
     }
 
     private void openModificaFragment() {
-        ModificaAnagraficaFragment fragment = new ModificaAnagraficaFragment();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerModifica, fragment)
+                .replace(R.id.containerModifica, new ModificaAnagraficaFragment())
                 .commit();
     }
 
@@ -41,4 +40,7 @@ public class AnagraficaActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 }
