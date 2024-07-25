@@ -1,9 +1,12 @@
 package it.uniba.berluxoding.AsilApp.controller.autenticazione;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import it.uniba.berluxoding.AsilApp.MainActivity;
+
 import it.uniba.berluxoding.AsilApp.R;
+import it.uniba.berluxoding.AsilApp.controller.home.HomeActivity;
+
 import android.content.Intent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -37,21 +40,24 @@ public class AutenticazioneActivity extends AppCompatActivity {
                 .commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        // Handle back press to hide the fragment and restore the activity layout
-        if (fragmentContainer.getVisibility() == View.VISIBLE) {
-            fragmentContainer.setVisibility(View.GONE);
-            loginContainer.setVisibility(View.VISIBLE); // Show login UI elements again
-        } else {
-            super.onBackPressed(); // Default back press behavior
-        }
+    public void redirectToMainActivity(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        //se si volesse NON dare la possibilità di tornare indietro a questa activity basterebbe chiamare il metodo finish()
     }
 
-    public void redirectToMainActivity(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        //se si volesse NON dare la possibilità di tornare indietro a questa activity basterebbe chiamare il metodo finishActivity()
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if (fragment instanceof RegistrazioneFragment) {
+            if (((RegistrazioneFragment) fragment).handleOnBackPressed()) {
+                fragmentContainer.setVisibility(View.GONE);
+                loginContainer.setVisibility(View.VISIBLE);
+                super.onBackPressed();
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 
 

@@ -13,7 +13,7 @@
 
         <!-- Dichiarazione di MainActivity -->
         <activity
-            android:name=".MainActivity">
+            android:name=".controller.home.HomeActivity">
         </activity>
 
         <!-- Dichiarazione di AnagraficaActivity -->

@@ -6,22 +6,18 @@ public class Utente {
 
     private String nome, cognome, username, password, paeseDiProvenienza; //USERNAME CHIAVE PRIMARIA
 
-    private int eta;
-
     private LocalDate dataNascita;
 
     public Utente() {
         super();
     }
 
-    public Utente(String nome, String cognome, String username, String password, String paeseDiProvenienza,
-                  int eta, LocalDate dataNascita) {
+    public Utente(String nome, String cognome, String username, String password, String paeseDiProvenienza, LocalDate dataNascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
         this.password = password;
         this.paeseDiProvenienza = paeseDiProvenienza;
-        this.eta = eta;
         this.dataNascita = dataNascita;
     }
 
@@ -57,14 +53,6 @@ public class Utente {
         this.password = password;
     }
 
-    public int getEta() {
-        return eta;
-    }
-
-    public void setEta(int eta) {
-        this.eta = eta;
-    }
-
     public LocalDate getDataNascita() {
         return dataNascita;
     }
@@ -89,7 +77,6 @@ public class Utente {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", paeseDiProvenienza='" + paeseDiProvenienza + '\'' +
-                ", eta=" + eta +
                 ", dataNascita=" + dataNascita +
                 '}';
     }
