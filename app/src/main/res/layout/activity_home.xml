@@ -22,13 +22,14 @@
         android:id="@+id/btnProfiloSanitario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profilo Sanitario"
-        app:layout_constraintTop_toBottomOf="@id/btnSchedaAnagrafica"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnValutazioni"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:text="Profilo Sanitario"
+        app:layout_constraintBottom_toTopOf="@id/btnValutazioni"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSchedaAnagrafica" />
 
     <Button
         android:id="@+id/btnValutazioni"
@@ -46,8 +47,20 @@
         android:id="@+id/btnSezioneInformativa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Sezione Informativa"
-        app:layout_constraintTop_toBottomOf="@id/btnValutazioni"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnValutazioni" />
+
+    <Button
+        android:id="@+id/btnGestioneSpese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestione Spese"
+        app:layout_constraintTop_toBottomOf="@id/btnSezioneInformativa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

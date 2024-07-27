@@ -108,9 +108,6 @@ public class RegistrazioneFragment extends Fragment {
             return;
         }
 
-        // Qui si può aggiungere il codice per salvare i dati dell'utente
-        // ad esempio, salvarli in un database o inviarli a un server
-
         Toast.makeText(getContext(), "Registrazione completata", Toast.LENGTH_SHORT).show();
 
         LocalDate dataNascitadate = LocalDate.of(Integer.valueOf(anno), Integer.valueOf(mese), Integer.valueOf(giorno));

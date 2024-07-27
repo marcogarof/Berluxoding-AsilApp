@@ -1,29 +1,140 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-    <!-- Campi per la modifica dei dati anagrafici -->
-    <EditText
-        android:id="@+id/editTextNome"
-        android:layout_width="match_parent"
+    <!-- Schermata 1: Modifica Anagrafica -->
+    <LinearLayout
+        android:id="@+id/modificaAnagrafica"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nome" />
-
-    <!-- Altri campi anagrafici -->
-
-    <!-- Pulsante per confermare le modifiche -->
-    <Button
-        android:id="@+id/btnConfermaModifiche"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conferma"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible">
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            android:inputType="text"/>
 
+        <EditText
+            android:id="@+id/editTextCognome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cognome"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            android:inputType="text"/>
 
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextPaeseDiProvenienza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Paese di Provenienza"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            android:inputType="text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextGiorno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="GG"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editTextMese"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="MM"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editTextAnno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="AAAA"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSalavaModifiche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva Modifiche" />
+    </LinearLayout>
+
+    <!-- Schermata 2: Richiesta di conferma modifiche -->
+    <LinearLayout
+        android:id="@+id/confermaModifiche"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corner_background"
+        app:layout_constraintTop_toBottomOf="@id/modificaAnagrafica"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/confirmation_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confermi le modifiche fatte?"
+            android:textSize="18sp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sì"
+                android:layout_marginEnd="16dp"/>
+
+            <Button
+                android:id="@+id/btnNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

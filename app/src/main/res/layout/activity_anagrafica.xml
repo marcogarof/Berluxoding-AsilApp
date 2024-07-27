@@ -2,40 +2,143 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <!-- Visualizzazione dei dati anagrafici -->
-    <TextView
-        android:id="@+id/textViewNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome: John"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <LinearLayout
+        android:id="@+id/layoutAnagrafica"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white">
 
-    <!-- Altri campi anagrafici (aggiungi qui i constraint necessari) -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scheda Personale"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/black" />
 
-    <!-- Pulsante per la modifica -->
-    <Button
-        android:id="@+id/btnModifica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modifica"
-        app:layout_constraintTop_toBottomOf="@id/textViewNome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        <TextView
+            android:id="@+id/tvNomeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
 
-    <!-- Frammento per la modifica -->
+        <TextView
+            android:id="@+id/tvNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mario"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvCognomeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cognome"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvCognome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rossi"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvUsernameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mario.rossi"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvPaeseDiProvenienzaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paese di Provenienza"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvPaeseDiProvenienza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Italia"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvDataNascitaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data di Nascita"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvDataNascita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01/01/1990"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnModifica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modifica"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"/>
+
+    </LinearLayout>
+
+
+    <!-- Aggiungi un contenitore per il Fragment -->
     <FrameLayout
-        android:id="@+id/containerModifica"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btnModifica"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
