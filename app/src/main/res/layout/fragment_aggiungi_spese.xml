@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNomeProdotto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome Prodotto"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/etCosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Costo"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/etNomeProdotto"
+        android:layout_marginTop="8dp" />
+
+    <Spinner
+        android:id="@+id/spTipologia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etCosto"
+        android:layout_marginTop="8dp" />
+
+    <Spinner
+        android:id="@+id/spMetodoPagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spTipologia"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnAggiungiSpesa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aggiungi Spesa"
+        android:layout_below="@id/spMetodoPagamento"
+        android:layout_marginTop="16dp" />
+
+    <ListView
+        android:id="@+id/lvSpese"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/btnAggiungiSpesa"
+        android:layout_above="@id/tvTotaleSpese"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tvTotaleSpese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnSalvaSpese"
+        android:layout_marginTop="16dp"
+        android:text="Totale Spese: €0.00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnSalvaSpese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salva Spese"
+        android:layout_above="@id/btnBack"
+        android:layout_marginBottom="0dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Torna Indietro"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp" />
+
+</RelativeLayout>

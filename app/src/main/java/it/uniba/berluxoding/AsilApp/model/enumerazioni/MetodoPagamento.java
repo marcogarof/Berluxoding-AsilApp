@@ -4,6 +4,8 @@ public enum MetodoPagamento {
 
     contanti,
 
-    elettronico
+    cartaDiDebito,
+
+    bonifico
 
 }

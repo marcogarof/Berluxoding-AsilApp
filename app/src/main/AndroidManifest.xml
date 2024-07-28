@@ -40,6 +40,8 @@
             android:name=".controller.valutazioni.ValutazioniActivity">
         </activity>
 
+        <activity android:name=".controller.gestioneSpese.GestioneSpeseActivity" />
+
 
     </application>
 
