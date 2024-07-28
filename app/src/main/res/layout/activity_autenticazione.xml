@@ -36,7 +36,7 @@
 
         <!-- Button for login -->
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login" />
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Accesso diretto (senza login)"
-            android:onClick="redirectToMainActivity" />
+            android:onClick="redirectToHomeActivity" />
     </LinearLayout>
 
     <!-- Fragment Container -->
