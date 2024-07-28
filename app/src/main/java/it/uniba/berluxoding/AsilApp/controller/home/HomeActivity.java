@@ -18,42 +18,21 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Trova il pulsante della scheda anagrafica nel layout
         Button btnSchedaAnagrafica = findViewById(R.id.btnSchedaAnagrafica);
-        // Trova il pulsante del profilo sanitario nel layout
         Button btnProfiloSanitario = findViewById(R.id.btnProfiloSanitario);
-        // Trova il pulsante per la sezione informativa nel layout
         Button btnSezioneInformativa = findViewById(R.id.btnSezioneInformativa);
-        // Trova il pulsante per le valutazioni nel layout
         Button btnValutazioni = findViewById(R.id.btnValutazioni);
 
-        // Imposta un listener per il click sul pulsante della scheda anagrafica
-        btnSchedaAnagrafica.setOnClickListener(v -> {
-            // Avvia l'attività della scheda anagrafica
-            Intent intent = new Intent(HomeActivity.this, AnagraficaActivity.class);
-            startActivity(intent);
-        });
+        btnSchedaAnagrafica.setOnClickListener(v -> startActivityWithIntent(AnagraficaActivity.class));
+        btnProfiloSanitario.setOnClickListener(v -> startActivityWithIntent(ProfiloSanitarioActivity.class));
+        btnSezioneInformativa.setOnClickListener(v -> startActivityWithIntent(SezioneInformativaActivity.class));
+        btnValutazioni.setOnClickListener(v -> startActivityWithIntent(ValutazioniActivity.class));
 
-        // Imposta un listener per il click sul pulsante del profilo sanitario
-        btnProfiloSanitario.setOnClickListener(v -> {
-            // Avvia l'attività del profilo sanitario
-            Intent intent = new Intent(HomeActivity.this, ProfiloSanitarioActivity.class);
-            startActivity(intent);
-        });
+    }
 
-        // Imposta un listener per il click sul pulsante per la sezione informativa
-        btnSezioneInformativa.setOnClickListener(v -> {
-            // Avvia l'attività della sezione informativa
-            Intent intent = new Intent(HomeActivity.this, SezioneInformativaActivity.class);
-            startActivity(intent);
-        });
-
-        // Imposta un listener per il click sul pulsante per le valutazioni
-        btnValutazioni.setOnClickListener(v -> {
-            // Avvia l'attività delle valutazioni
-            Intent intent = new Intent(HomeActivity.this, ValutazioniActivity.class);
-            startActivity(intent);
-        });
+    private void startActivityWithIntent(Class<?> targetActivity) {
+        Intent intent = new Intent(HomeActivity.this, targetActivity);
+        startActivity(intent);
     }
 
 }
