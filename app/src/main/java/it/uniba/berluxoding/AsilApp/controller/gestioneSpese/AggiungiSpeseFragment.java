@@ -2,6 +2,7 @@ package it.uniba.berluxoding.AsilApp.controller.gestioneSpese;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,16 @@ public class AggiungiSpeseFragment extends Fragment {
     private List<String> speseList;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            speseList = savedInstanceState.getStringArrayList("speseList");
+        } else {
+            speseList = new ArrayList<>();
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_aggiungi_spese, container, false);
 
@@ -54,7 +65,6 @@ public class AggiungiSpeseFragment extends Fragment {
         metodoPagamentoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMetodoPagamento.setAdapter(metodoPagamentoAdapter);
 
-        speseList = new ArrayList<>();
         speseAdapter = new SpeseAdapter(getContext(), speseList, this);
         lvSpese.setAdapter(speseAdapter);
 
@@ -65,12 +75,18 @@ public class AggiungiSpeseFragment extends Fragment {
         btnAggiungiSpesa.setOnClickListener(v -> aggiungiSpesa());
 
         Button btnSalvaSpese = view.findViewById(R.id.btnSalvaSpese);
-        btnSalvaSpese.setOnClickListener(v -> salvaSpese());
+        btnSalvaSpese.setOnClickListener(v -> openConfermaSalvaSpeseFragment());
 
         Button btnBack = view.findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> goBackToActivity());
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putStringArrayList("speseList", new ArrayList<>(speseList));
     }
 
     public void calcolaTotaleSpese() {
@@ -85,6 +101,12 @@ public class AggiungiSpeseFragment extends Fragment {
 
     public void aggiungiSpesa() {
         String nomeProdotto = etNomeProdotto.getText().toString();
+
+        if( etCosto.getText().toString().equals(".")) { //Altrimenti viene lanciata eccezione che fa crashare tutta l'app
+            Toast.makeText(getContext(), "Valore costo errato", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         double costo = Double.parseDouble(etCosto.getText().toString());
         String tipologia = spTipologia.getSelectedItem().toString();
         String metodoPagamento = spMetodoPagamento.getSelectedItem().toString();
@@ -103,12 +125,22 @@ public class AggiungiSpeseFragment extends Fragment {
         calcolaTotaleSpese();
     }
 
-    private void salvaSpese() {
-        if(! speseList.isEmpty()) {
-            // TODO: Implementare la logica per salvare le spese
-            Toast.makeText(getContext(), "Spese salvate con successo", Toast.LENGTH_SHORT).show();
+    private void openConfermaSalvaSpeseFragment() {
+        if (!speseList.isEmpty()) {
+            // Passa la lista delle spese al frammento di conferma
+            ConfermaSalvaSpeseFragment confermaFragment = new ConfermaSalvaSpeseFragment();
+            Bundle args = new Bundle();
+            args.putStringArrayList("speseList", new ArrayList<>(speseList));
+            confermaFragment.setArguments(args);
+
+            // Mostra il frammento di conferma
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, confermaFragment)
+                    .addToBackStack(null)
+                    .commit();
+        } else {
+            Toast.makeText(getContext(), "Lista della spesa vuota", Toast.LENGTH_SHORT).show();
         }
-        goBackToActivity();
     }
 
     private void goBackToActivity() {

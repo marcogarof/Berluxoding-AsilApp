@@ -58,12 +58,11 @@ public class GestioneSpeseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-        if (fragment instanceof AggiungiSpeseFragment) {
-
-                getSupportFragmentManager().popBackStack();
+        if (fragment instanceof AggiungiSpeseFragment || fragment instanceof ConfermaSalvaSpeseFragment) {
+            getSupportFragmentManager().popBackStack();
+            if (fragment instanceof AggiungiSpeseFragment) {
                 onFragmentClosed();
-                //super.onBackPressed();
-
+            }
         } else {
             super.onBackPressed();
         }
