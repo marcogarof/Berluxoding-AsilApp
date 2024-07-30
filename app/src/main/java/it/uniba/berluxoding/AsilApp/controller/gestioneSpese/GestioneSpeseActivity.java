@@ -40,7 +40,7 @@ public class GestioneSpeseActivity extends AppCompatActivity {
         buttonsContainer = findViewById(R.id.buttons_container);
         fragmentContainer = findViewById(R.id.fragment_container);
 
-        //vediSpese.setOnClickListener();
+        vediSpese.setOnClickListener(v -> openVisualizzaSpeseFragment());
         aggiungiSpese.setOnClickListener(v -> openAggiungiSpeseFragment());
     }
 
@@ -55,6 +55,16 @@ public class GestioneSpeseActivity extends AppCompatActivity {
                 .commit();
     }
 
+    private void openVisualizzaSpeseFragment(){
+        buttonsContainer.setVisibility(View.GONE); // Hide login UI elements
+        fragmentContainer.setVisibility(View.VISIBLE); // Show fragment container
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new VisualizzaSpeseFragment())
+                .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
+                .commit();
+    }
+
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
@@ -63,7 +73,11 @@ public class GestioneSpeseActivity extends AppCompatActivity {
             if (fragment instanceof AggiungiSpeseFragment) {
                 onFragmentClosed();
             }
-        } else {
+        } else if(fragment instanceof VisualizzaSpeseFragment){
+            getSupportFragmentManager().popBackStack();
+            onFragmentClosed();
+        }
+        else {
             super.onBackPressed();
         }
     }

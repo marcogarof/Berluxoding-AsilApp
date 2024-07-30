@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvDataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci un intervallo di tempo :"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:id="@+id/tvTodayDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvDataLabel"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/tvGiorno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="GG"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tvtMese"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="MM"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tvAnno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="AAAA"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/etOtherDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvTodayDate"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/etGiorno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="GG"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etMese"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="MM"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etAnno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="AAAA"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spTipologia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etOtherDate"
+        android:layout_marginTop="16dp" />
+
+    <ListView
+        android:id="@+id/lvSpese"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/spTipologia"
+        android:layout_above="@id/tvTotaleSpese"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tvTotaleSpese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnCercaSpese"
+        android:layout_marginTop="16dp"
+        android:text="Totale Spese: €0.00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnCercaSpese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerca Spese"
+        android:layout_above="@id/btnBack"
+        android:layout_marginBottom="0dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Torna Indietro"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp" />
+
+</RelativeLayout>
