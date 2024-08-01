@@ -134,8 +134,6 @@ public class RegistrazioneFragment extends Fragment {
         // Avvia la nuova Activity
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         startActivity(intent);
-        // Chiudi l'activity corrente se necessario
-        requireActivity().finish();
     }
 
 

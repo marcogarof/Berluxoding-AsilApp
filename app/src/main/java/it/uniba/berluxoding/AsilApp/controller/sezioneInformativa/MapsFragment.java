@@ -39,18 +39,10 @@ public class MapsFragment extends Fragment {
 
 
         Button btnBack = view.findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(v -> goBackToActivity());
+        btnBack.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
 
         return view;
     }
 
-    private void goBackToActivity() {
-        // Chiama il metodo dell'Activity per aggiornare la visibilità dei layout
-        if (getActivity() instanceof SezioneInformativaActivity) {
-            ((SezioneInformativaActivity) getActivity()).onFragmentClosed();
-        }
 
-        // Rimuove il Fragment dallo stack
-        getActivity().getSupportFragmentManager().popBackStack();
-    }
 }

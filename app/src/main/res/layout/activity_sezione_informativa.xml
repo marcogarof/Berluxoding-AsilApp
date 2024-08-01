@@ -28,7 +28,7 @@
             android:layout_marginBottom="16dp"/>
 
         <WebView
-            android:id="@+id/youtube_webview"
+            android:id="@+id/info_utili_youtube_webview"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"/>
@@ -38,10 +38,11 @@
             android:id="@+id/textViewCentriAccoglienza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Centri di Accoglienza"
+            android:text="Il Tuo Centro di Accoglienza"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/holo_blue_dark"/>
 
         <!-- Contenitore per informazioni sui centri di accoglienza -->
         <LinearLayout
@@ -62,8 +63,6 @@
             android:layout_marginTop="16dp"
             android:textColor="@android:color/holo_blue_dark"/>
 
-
-
         <!-- Contenitore per informazioni sulla città/regione -->
         <LinearLayout
             android:id="@+id/cittaRegioneContainer"
@@ -71,6 +70,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="8dp"/>
+
+
+        <TextView
+            android:id="@+id/textViewStileDiVitaSalutare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stile di Vita Salutare"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <WebView
+            android:id="@+id/stile_vita_youtube_webview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"/>
 
         <!-- Altri documenti e riferimenti utili -->
         <TextView

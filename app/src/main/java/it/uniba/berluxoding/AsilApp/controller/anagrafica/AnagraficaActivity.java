@@ -3,6 +3,8 @@ package it.uniba.berluxoding.AsilApp.controller.anagrafica;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -70,24 +72,27 @@ public class AnagraficaActivity extends AppCompatActivity {
         // Crea una nuova istanza del fragment con i dati
         ModificaAnagraficaFragment fragment = ModificaAnagraficaFragment.newInstance(nome, cognome, username, "", paeseDiProvenienza, dataNascita);
 
+        openFragment(R.id.fragment_container, fragment);
+    }
+
+    private void openFragment(@IdRes int idRes, @NonNull Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment)
+                .replace(idRes, fragment)
                 .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
                 .commit();
     }
 
+
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-        if (fragment instanceof ModificaAnagraficaFragment) {
+        if (fragment instanceof ModificaAnagraficaFragment) { //condizione per verificare se ci trova sul fragment oppure no
             if (((ModificaAnagraficaFragment) fragment).handleOnBackPressed()) {
                 getSupportFragmentManager().popBackStack();
                 onFragmentClosed();
-                //super.onBackPressed();
             }
-        } else {
-            super.onBackPressed();
         }
+        else super.onBackPressed();
     }
 
     public void onFragmentClosed() {

@@ -28,10 +28,7 @@ public class ModificaAnagraficaFragment extends Fragment {
                                 ARG_DATA_NASCITA = "data_nascita";
 
     private String nome, cognome, username, password, paeseDiProvenienza, dataNascita;
-
-
     private View modificaAnagrafica, confermaModifiche;
-
     private EditText editTextNome, editTextCognome, editTextUsername, editTextPassword, editTextPaeseDiProvenienza;
     private EditText editTextGiorno, editTextMese, editTextAnno;
     private Button btnSalvaModifiche, btnSi, btnNo ;

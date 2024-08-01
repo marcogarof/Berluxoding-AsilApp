@@ -1,6 +1,8 @@
 package it.uniba.berluxoding.AsilApp.controller.autenticazione;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
@@ -46,8 +48,12 @@ public class AutenticazioneActivity extends AppCompatActivity {
         loginContainer.setVisibility(View.GONE); // Hide login UI elements
         fragmentContainer.setVisibility(View.VISIBLE); // Show fragment container
 
+        openFragment(R.id.fragment_container, new RegistrazioneFragment());
+    }
+
+    private void openFragment(@IdRes int idRes, @NonNull Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new RegistrazioneFragment())
+                .replace(idRes, fragment)
                 .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
                 .commit();
     }
@@ -85,7 +91,7 @@ public class AutenticazioneActivity extends AppCompatActivity {
             if (((RegistrazioneFragment) fragment).handleOnBackPressed()) {
                 fragmentContainer.setVisibility(View.GONE);
                 loginContainer.setVisibility(View.VISIBLE);
-                super.onBackPressed();
+                getSupportFragmentManager().popBackStack();
             }
         } else {
             super.onBackPressed();

@@ -1,6 +1,8 @@
 package it.uniba.berluxoding.AsilApp.controller.gestioneSpese;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
@@ -134,13 +136,9 @@ public class AggiungiSpeseFragment extends Fragment {
             confermaFragment.setArguments(args);
 
             // Mostra il frammento di conferma
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, confermaFragment)
-                    .addToBackStack(null)
-                    .commit();
-        } else {
-            Toast.makeText(getContext(), "Lista della spesa vuota", Toast.LENGTH_SHORT).show();
+            openFragment(R.id.fragment_container, confermaFragment);
         }
+        else Toast.makeText(getContext(), "Lista della spesa vuota", Toast.LENGTH_SHORT).show();
     }
 
     private void goBackToActivity() {
@@ -151,6 +149,13 @@ public class AggiungiSpeseFragment extends Fragment {
 
         // Rimuove il Fragment dallo stack
         getActivity().getSupportFragmentManager().popBackStack();
+    }
+
+    private void openFragment(@IdRes int idRes, @NonNull Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(idRes, fragment)
+                .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
+                .commit();
     }
 
 }

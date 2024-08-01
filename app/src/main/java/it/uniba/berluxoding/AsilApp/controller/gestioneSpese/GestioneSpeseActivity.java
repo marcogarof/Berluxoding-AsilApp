@@ -2,6 +2,8 @@ package it.uniba.berluxoding.AsilApp.controller.gestioneSpese;
 
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -40,27 +42,20 @@ public class GestioneSpeseActivity extends AppCompatActivity {
         buttonsContainer = findViewById(R.id.buttons_container);
         fragmentContainer = findViewById(R.id.fragment_container);
 
-        vediSpese.setOnClickListener(v -> openVisualizzaSpeseFragment());
-        aggiungiSpese.setOnClickListener(v -> openAggiungiSpeseFragment());
+        vediSpese.setOnClickListener(v -> openNewFragment(R.id.fragment_container, new VisualizzaSpeseFragment()));
+        aggiungiSpese.setOnClickListener(v -> openNewFragment(R.id.fragment_container, new AggiungiSpeseFragment()));
     }
 
-    // E SE CI FOSSERO 2 FRAGMENT ??? SI GENERALIZZEREBBE IL METODO ???
-    private void openAggiungiSpeseFragment(){
+    private void openNewFragment(int idRes, Fragment fragment){
         buttonsContainer.setVisibility(View.GONE); // Hide login UI elements
         fragmentContainer.setVisibility(View.VISIBLE); // Show fragment container
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new AggiungiSpeseFragment())
-                .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
-                .commit();
+        openFragment(idRes, fragment);
     }
 
-    private void openVisualizzaSpeseFragment(){
-        buttonsContainer.setVisibility(View.GONE); // Hide login UI elements
-        fragmentContainer.setVisibility(View.VISIBLE); // Show fragment container
-
+    private void openFragment(@IdRes int idRes, @NonNull Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new VisualizzaSpeseFragment())
+                .replace(idRes, fragment)
                 .addToBackStack(null) // Adds the transaction to the back stack so the user can navigate back
                 .commit();
     }
